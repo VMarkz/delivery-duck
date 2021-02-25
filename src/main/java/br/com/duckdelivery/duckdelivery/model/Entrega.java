@@ -8,7 +8,6 @@ public abstract class Entrega implements Cobranca{
     protected Integer id;
     protected String local;
     protected Double distancia;
-    protected Double taxa;
     protected List<Produto> produtos;
 
     public Entrega(Integer id, String local, Double distancia, List<Produto> produtos) {
@@ -43,14 +42,6 @@ public abstract class Entrega implements Cobranca{
         this.distancia = distancia;
     }
 
-    public Double getTaxa() {
-        return taxa;
-    }
-
-    public void setTaxa(Double taxa) {
-        this.taxa = taxa;
-    }
-
     public List<Produto> getProdutos() {
         return produtos;
     }
@@ -63,14 +54,4 @@ public abstract class Entrega implements Cobranca{
         this.produtos.add(produto);
     }
 
-    @Override
-    public String toString() {
-        return "Entrega{" +
-                "id=" + id +
-                ", local='" + local + '\'' +
-                ", distancia=" + distancia +
-                ", taxa=" + taxa +
-                ", produtos=" + produtos +
-                '}';
-    }
 }
