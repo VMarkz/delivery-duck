@@ -9,6 +9,7 @@ public abstract class Entrega implements Cobranca{
     protected String local;
     protected Double distancia;
     protected List<Produto> produtos;
+    protected Double valorFinal;
 
     public Entrega(Integer id, String local, Double distancia, List<Produto> produtos) {
         this.id = id;
@@ -54,4 +55,11 @@ public abstract class Entrega implements Cobranca{
         this.produtos.add(produto);
     }
 
+    public Double getValorFinal() {
+        return valorFinal;
+    }
+
+    public void setValorFinal(Double valorFinal) {
+        this.valorFinal = valorFinal;
+    }
 }

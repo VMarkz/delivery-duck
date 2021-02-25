@@ -9,8 +9,14 @@ public class EntregaMaritima extends Entrega{
     }
 
     @Override
-    public Double calcularEntrega(List<Produto> produtos, Double taxa) {
-        return null;
+    public void calcularEntrega() {
+        Double valor = 0.0;
+
+        for (Produto p : this.produtos) {
+            valor += p.getValor();
+        }
+
+        this.setValorFinal(valor * 1.2);
     }
 
 }
