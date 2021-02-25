@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/entregas")
-public class EntregasControler {
+public class EntregaControler {
 
     @GetMapping
     public List<Entrega> listar() {
