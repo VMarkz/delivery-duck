@@ -6,6 +6,7 @@ public class EntregaTerrea extends Entrega{
 
     public EntregaTerrea(Integer id, String local, Double distancia, List<Produto> produtos) {
         super(id, local, distancia, produtos);
+        this.calcularEntrega();
     }
 
     @Override
