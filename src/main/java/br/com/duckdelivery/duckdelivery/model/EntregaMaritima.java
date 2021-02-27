@@ -6,6 +6,7 @@ public class EntregaMaritima extends Entrega{
 
     public EntregaMaritima(Integer id, String local, Double distancia, Carrinho carrinho) {
         super(id, local, distancia, carrinho);
+        this.tipoEntrega = "Marítima";
         this.calcularValorTotal();
     }
 

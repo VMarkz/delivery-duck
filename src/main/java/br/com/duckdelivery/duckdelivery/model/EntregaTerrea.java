@@ -6,6 +6,7 @@ public class EntregaTerrea extends Entrega{
 
     public EntregaTerrea(Integer id, String local, Double distancia, Carrinho carrinho) {
         super(id, local, distancia, carrinho);
+        this.tipoEntrega = "Térrea";
         this.calcularValorTotal();
     }
 

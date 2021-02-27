@@ -11,6 +11,7 @@ public class Carrinho implements Cobranca{
     public Carrinho(List<Produto> produtos) {
         this.produtos = new ArrayList<>();
         this.produtos = produtos;
+        this.calcularValorTotal();
     }
 
     public List<Produto> getProdutos() {
@@ -31,6 +32,7 @@ public class Carrinho implements Cobranca{
 
     public void adicionarProduto(List<Produto> novosProdutos){
         this.produtos.addAll(novosProdutos);
+        this.calcularValorTotal();
     }
 
     @Override

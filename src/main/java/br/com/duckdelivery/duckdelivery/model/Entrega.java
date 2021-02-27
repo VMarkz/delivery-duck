@@ -6,6 +6,7 @@ import java.util.List;
 public abstract class Entrega implements Cobranca{
 
     protected Integer id;
+    protected String tipoEntrega;
     protected String local;
     protected Double distancia;
     protected Carrinho carrinho;
@@ -49,6 +50,10 @@ public abstract class Entrega implements Cobranca{
     public Double getValorFinal() {
         return valorFinal;
     }
+
+    public String getTipoEntrega() { return tipoEntrega; }
+
+    public void setTipoEntrega(String tipoEntrega) { this.tipoEntrega = tipoEntrega; }
 
     public void setValorFinal(Double valorFinal) {
         this.valorFinal = valorFinal;
