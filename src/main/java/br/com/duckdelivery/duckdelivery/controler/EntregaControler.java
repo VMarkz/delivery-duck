@@ -48,7 +48,7 @@ public class EntregaControler {
     }
 
     @DeleteMapping("/{entregaId}/{produtoId}")
-    public ResponseEntity<?> deletarProduto(@PathVariable Integer entregaId,
+    public ResponseEntity<?> cancelarEntregaProduto(@PathVariable Integer entregaId,
                                             @PathVariable Integer produtoId) {
         for (int i = 0;
              i < CarregarBanco.getFretadora().getEntregas().size();

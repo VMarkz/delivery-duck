@@ -4,16 +4,16 @@ import java.util.List;
 
 public class EntregaMaritima extends Entrega{
 
-    public EntregaMaritima(Integer id, String local, Double distancia, List<Produto> produtos) {
-        super(id, local, distancia, produtos);
-        this.calcularEntrega();
+    public EntregaMaritima(Integer id, String local, Double distancia, Carrinho carrinho) {
+        super(id, local, distancia, carrinho);
+        this.calcularValorTotal();
     }
 
     @Override
-    public void calcularEntrega() {
+    public void calcularValorTotal() {
         Double valor = 0.0;
 
-        for (Produto p : this.produtos) {
+        for (Produto p : this.carrinho.getProdutos()) {
             valor += p.getValor();
         }
 

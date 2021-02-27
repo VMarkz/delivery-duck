@@ -40,10 +40,10 @@ public class Fretadora {
     public void deletarProduto(Integer entregaIndex ,Integer produtoId){
 
         for (int i = 0;
-             i < entregas.get(entregaIndex).getProdutos().size();
+             i < entregas.get(entregaIndex).getCarrinho().getProdutos().size();
              i++) {
-            if(entregas.get(entregaIndex).getProdutos().get(i).getId() == produtoId){
-                entregas.get(entregaIndex).getProdutos().remove(i);
+            if(entregas.get(entregaIndex).getCarrinho().getProdutos().get(i).getId() == produtoId){
+                entregas.get(entregaIndex).getCarrinho().getProdutos().remove(i);
             }
         }
 // Tentei fazer com forEach mas pelo jeito não posso alterar a lista enquanto dentro do forEach

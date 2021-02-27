@@ -4,6 +4,6 @@ import java.util.List;
 
 public interface Cobranca {
 
-    public void calcularEntrega();
+    public void calcularValorTotal();
 
 }

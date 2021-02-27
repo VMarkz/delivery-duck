@@ -8,15 +8,14 @@ public abstract class Entrega implements Cobranca{
     protected Integer id;
     protected String local;
     protected Double distancia;
-    protected List<Produto> produtos;
+    protected Carrinho carrinho;
     protected Double valorFinal;
 
-    public Entrega(Integer id, String local, Double distancia, List<Produto> produtos) {
+    public Entrega(Integer id, String local, Double distancia, Carrinho carrinho) {
         this.id = id;
         this.local = local;
         this.distancia = distancia;
-        this.produtos = produtos;
-        produtos = new ArrayList<>();
+        this.carrinho = carrinho;
     }
 
     public Integer getId() {
@@ -43,17 +42,9 @@ public abstract class Entrega implements Cobranca{
         this.distancia = distancia;
     }
 
-    public List<Produto> getProdutos() {
-        return produtos;
-    }
+    public Carrinho getCarrinho() { return carrinho; }
 
-    public void setProdutos(List<Produto> produtos) {
-        this.produtos = produtos;
-    }
-
-    public void adicionarProduto(Produto produto){
-        this.produtos.add(produto);
-    }
+    public void setCarrinho(Carrinho carrinho) { this.carrinho = carrinho; }
 
     public Double getValorFinal() {
         return valorFinal;
@@ -62,4 +53,5 @@ public abstract class Entrega implements Cobranca{
     public void setValorFinal(Double valorFinal) {
         this.valorFinal = valorFinal;
     }
+
 }
