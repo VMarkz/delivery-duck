@@ -5,6 +5,8 @@ import java.util.List;
 
 public abstract class Entrega implements Cobranca{
 
+    //Escolhi utilizar um classe abstrata pois indentifiquei três classes que poderiam herda-la
+    //além de que, com isso posso passar a implementação da classe Cobranca para as filhas.
     protected Integer id;
     protected String tipoEntrega;
     protected String local;
