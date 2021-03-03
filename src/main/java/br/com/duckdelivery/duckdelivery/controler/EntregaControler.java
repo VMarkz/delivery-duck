@@ -1,11 +1,16 @@
 package br.com.duckdelivery.duckdelivery.controler;
 
 import br.com.duckdelivery.duckdelivery.model.Entrega;
+import br.com.duckdelivery.duckdelivery.model.EntregaTerrea;
 import br.com.duckdelivery.duckdelivery.model.Produto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import br.com.duckdelivery.duckdelivery.model.*;
 import br.com.duckdelivery.duckdelivery.utils.CarregarBanco;
+import org.springframework.web.util.UriComponentsBuilder;
+import java.net.URI;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -20,6 +25,39 @@ public class EntregaControler {
         } else {
             return CarregarBanco.getFretadora().getEntregas();
         }
+    }
+
+    @PostMapping("/entrega-terrea")
+    public ResponseEntity<Entrega> solicitarEntregaTerrea(@RequestBody Produto produto, UriComponentsBuilder uriBuilder){
+        List<Produto> produtos = new ArrayList<>();
+        produtos.add(new Produto(produto.getId(),produto.getValor(),produto.getDescricao()));
+        Carrinho carrinho = new Carrinho(produtos);
+        EntregaTerrea entregaTerrea = new EntregaTerrea(4,"Rua Luiz Mendonsa da Silva Oliveira, 780", 19008.0, carrinho);
+        CarregarBanco.getFretadora().adcionarEntrega(entregaTerrea);
+        URI uri = uriBuilder.path("/entregas/{id}").buildAndExpand(4).toUri();
+        return ResponseEntity.created(uri).body(entregaTerrea);
+    }
+
+    @PostMapping("/entrega-maritima")
+    public ResponseEntity<Entrega> solicitarEntregaMaritima(@RequestBody Produto produto, UriComponentsBuilder uriBuilder){
+        List<Produto> produtos = new ArrayList<>();
+        produtos.add(new Produto(produto.getId(),produto.getValor(),produto.getDescricao()));
+        Carrinho carrinho = new Carrinho(produtos);
+        EntregaMaritima entregaMaritima = new EntregaMaritima(5,"Rua Luiz Mendonsa da Silva Oliveira, 780", 19008.0, carrinho);
+        CarregarBanco.getFretadora().adcionarEntrega(entregaMaritima);
+        URI uri = uriBuilder.path("/entregas/{id}").buildAndExpand(4).toUri();
+        return ResponseEntity.created(uri).body(entregaMaritima);
+    }
+
+    @PostMapping("/entrega-aerea")
+    public ResponseEntity<Entrega> solicitarEntregaAerea(@RequestBody Produto produto, UriComponentsBuilder uriBuilder){
+        List<Produto> produtos = new ArrayList<>();
+        produtos.add(new Produto(produto.getId(),produto.getValor(),produto.getDescricao()));
+        Carrinho carrinho = new Carrinho(produtos);
+        EntregaAerea entregaAerea = new EntregaAerea(6,"Rua Luiz Mendonsa da Silva Oliveira, 780", 19008.0, carrinho);
+        CarregarBanco.getFretadora().adcionarEntrega(entregaAerea);
+        URI uri = uriBuilder.path("/entregas/{id}").buildAndExpand(4).toUri();
+        return ResponseEntity.created(uri).body(entregaAerea);
     }
 
     @GetMapping("/{id}")

@@ -9,6 +9,10 @@ public class CarregarBanco {
 
     static Fretadora fretadora = new Fretadora("dhl");
 
+    public static Fretadora getFretadora() {
+        return fretadora;
+    }
+
     public static void carregarBanco(){
         List<Produto> produtos = new ArrayList<>();
 
@@ -29,9 +33,5 @@ public class CarregarBanco {
         fretadora.adcionarEntrega(entregaMaritima);
         fretadora.adcionarEntrega(entregaTerrea);
 
-    }
-
-    public static Fretadora getFretadora() {
-        return fretadora;
     }
 }
